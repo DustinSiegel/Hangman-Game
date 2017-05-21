@@ -12,7 +12,9 @@
 
 
 
-
+  // document.addEventListener("DOMContentLoaded", function(event) {
+  //   console.log("DOM fully loaded and parsed");
+  // });
 
 
 
@@ -70,21 +72,24 @@
 
 		
 		alert(answerArray.join(" "));
-		alert("Nice sluthin Columbo, didn't think you had it in ya! The word you found is " + word +".");
+		alert("Nice sluthin' Columbo, didn't think you had it in ya! The word you found is " + word +".");
 
 		document.onkeyup = function() {
-			var guess = String.fromCharCode(event.keyCode).toLowerCase();
+			var guessvalue = String.fromCharCode(event.keyCode).toLowerCase();
 			console.log(guess);
+
+		var html = "<p>Letters Guessed:" + guessvalue + "</p>";
+		document.querySelector("#game").innerHTML = html;
+
+
 
 }
 			// Using the variable html to print the randomly selected word to the webpage.
-		var underscore = "<p>Guess This Word"  + answerArray + "</p>";
-		document.querySelector("#game").innerHTML = underscore;
+		// var underscore = "<p>Guess This Word"  + answerArray + "</p>";
+		// document.querySelector("#game").innerHTML = underscore;
+		document.getElementById("puzzle").innerHTML = answerArray.join(" ");
 
-		var letterguess = "<p>Letters Guessed:" + guess + "</p>";
-		document.querySelector("#game").innerHTML = underscore;
-
-
+			// $("#game").text(guess);
 
 
 
