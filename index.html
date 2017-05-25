@@ -10,30 +10,34 @@
 <!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Link to reset.css page -->
-		<style src="assets/css/reset.css"></style>
-<!--Link to css page  -->
-		<style src="assets/css/style.css"></style>
+<!-- Reset Style Sheet -->
+			<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+<!-- CSS Sheet -->
+			<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	</head>
 
 	<body>
 
 
-
+		<div>
+			<p>Try to figure it out Sherlock!: <span id="answer"></span></p>
 		</div>
+			
+		<div class="messageboard">
+			<h1><span id="message"></span></h1>
+		</div>
+		
 
 		<div>
-			
-				<p>Try to figure it out Sherlock!: <span id="answer"></span></p>
-
-				<input id="guess" type="text">
-				<input type="button" value="guess" onClick="guessIt()"/>
-				<input type="button" value="retry" onClick="start()"/>
-				<input type="button" value="quit" onClick="quit()"/>
-				<h1><span id="message"></span></h1>
-				<p>Letters you have guessed: <span id="guesses""></span></p>
-				<p>Number of Guesses Left: <span id="countdown"></span></p>
+			<input id="guess" type="text">
+			<input type="button" value="guess" onClick="guessIt()"/>
+			<input type="button" value="retry" onClick="start()"/>
+			<input type="button" value="quit" onClick="quit()"/>
+				
+			<p>Letters you have guessed: <span id="guesses""></span></p>
+			<p>Number of Guesses Left: <span id="countdown"></span></p>
 		</div>
 
 		<div id="game">

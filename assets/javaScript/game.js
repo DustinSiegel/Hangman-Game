@@ -43,8 +43,8 @@ function start(){ 	// a function that randomly picks a word from the array and t
   	for (var i = 0; i < word.length; i++) {	// a forLoop that runs a cycle for each letter in the word.
     answerArray[i] = "_";	// fills the answer array with an underscore to represent each letter in the word.
   	countdown = 10;	// A countdown display that shows how many guesses remain
-  	document.getElementById("countdown").innerHTML = countdown;	
-  	document.getElementById("guesses").innerHTML = " ";
+  	document.getElementById("countdown").innerHTML = countdown;		//puts the countdown varaible into the html
+  	document.getElementById("guesses").innerHTML = " ";		// puts the player guess into the html
   	}
 
 document.getElementById("answer").innerHTML= answerArray.join(" ");	// puts the word chosen into the html
@@ -96,35 +96,34 @@ function guessIt() {	// a function that reacts to a players input
 	    
 	    if (showThisMessage === "") {	// if the showthismessage varaible is exactly equal to a wrong letter
 	        showThisMessage = guess + "... nope, that ain't it ";	//it shows a message that has the wrong guess plus informs you to try again
-	   		countdown --;
-	   		document.getElementById("countdown").innerHTML = countdown;	
+	   		countdown --;	// subtracts one from the number of gusses left
+	   		document.getElementById("countdown").innerHTML = countdown;		//updates in html the change to the countdown variable
 	    }
 
-	    if (remaining_letters == 0) {
+	    if (remaining_letters == 0) {	//and if statement that takes the remaining leters count and compares it to 0
 	    	wins ++;		// increases the win counter by 1
 	    	var html = "<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>";	// takes the wins and losses variables and creates a format that will fit in to the html
 			document.querySelector ("#game").innerHTML = html;	// calls the location to display created html
 	    }
 
-	    if (countdown == 0) {
-	    	// showthismessage = "Awww dag, you lose. The word was " + word + "!";	//distplays a message saying that you have lost and also showing you the solution
-			losses ++;
+	    if (countdown == 0) {	// an if statement that takes the countdown variable and compares it to 0 acts if they are equal
+			losses ++;	// adds one to the losses variable
 	   		var html = "<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>";	// takes the wins and losses variables and creates a format that will fit in to the html
 			document.querySelector ("#game").innerHTML = html;	// calls the location to display created html
-	    	quit();
+	    	quit(); 	//triggers the quit function
 	    }
 
 	    document.getElementById("answer").innerHTML = answerArray.join(" ");  // displays a new selection from the array when refreshed 
 	    document.getElementById("guess").value = "";	//clears the text entry field after a guess is processed
 		}
 		document.getElementById("message").innerHTML = showThisMessage;		//defines the place in the html to display the messages
+}
+
+function quit() {	// a function that acts when you press the quit button
+	document.getElementById("message").innerHTML = "Give up? The word was "+ word + "!";	//distplays a message saying that you have lost and also showing you the solution
+	for (var j = 0; j < word.length; j++) {		// a forloop that fills in the answer array
+		answerArray[j] = word[j];	// making the answer array the same as the randomly selected word
 	}
 
-	function quit() {	// a function that acts when you press the quit button
-		document.getElementById("message").innerHTML = "Give up? The word was "+ word + "!";	//distplays a message saying that you have lost and also showing you the solution
-		for (var j = 0; j < word.length; j++) {		// a forloop that fills in the answer array
-			answerArray[j] = word[j];	// making the answer array the same as the randomly selected word
-		}
-
-		document.getElementById("answer").innerHTML = answerArray.join(" ");	// this recognises that the word has been completed and places it in the html
+	document.getElementById("answer").innerHTML = answerArray.join(" ");	// this recognises that the word has been completed and places it in the html
 }
