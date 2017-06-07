@@ -48,7 +48,7 @@ function start(){ 	// a function that randomly picks a word from the array and t
   	}
 
 document.getElementById("answer").innerHTML= answerArray.join(" ");	// puts the word chosen into the html
-document.getElementById("message").innerHTML= "Hey Playa, pick a letter!";  //some popup text that tells the player to make an entry
+document.getElementById("message").innerHTML= "Hey Playa, pick a lowercase letter!";  //some popup text that tells the player to make an entry
 
 var guessArray = [];	// creates variable that is an array	
 
@@ -86,7 +86,7 @@ function guessIt() {	// a function that reacts to a players input
 	    var remaining_letters = answerArray.length;	// sets the remaining unguessed letters to underscors
 	    for (i = 0; i < answerArray.length; i++) { // a forloop that recounts the word and determines the missing letters
 	        if (answerArray[i] !== '_') {	//  an if statement that determins if there are any more blanks left
-	            remaining_letters -= 1;	// when the remaining letters are less then or equal to 1
+	            remaining_letters -= 1;	// subtracts 1 from the remaining letters varaible
 	        }
 	    }
 	    
